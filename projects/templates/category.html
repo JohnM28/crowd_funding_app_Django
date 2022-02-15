@@ -1,0 +1,20 @@
+{% extends "base1.html" %}
+{% block content %}
+
+<div class="row">
+  {% for i in category_projects %}
+     <div class="container col-4">
+             <div class="card" style="width: 18rem;">
+           <img src="{{ i.images.0.image.url }}" >
+          <div class="card-body">
+            <h5 class="card-title">Project title :{{ i.project.title }}</h5>
+            <h4 class="card-text">Project Target : {{ i.project.total_target}}</h4>
+              <h3>Project Category : {{ i.project.category }}</h3>
+           <a class="btn btn-primary"href=" {% url 'detail' i.project.id %} ">Show Project</a>
+          </div>
+        </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
